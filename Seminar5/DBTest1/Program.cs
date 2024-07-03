@@ -6,11 +6,11 @@ namespace DBTest1
     {
         static void Main(string[] args)
         {
-            Server s = new Server();
-            s.StartServer();
-            var optionsBuilder = new DbContextOptionsBuilder<ChatContext>()
-                .UseSqlServer("Server = .; Database = DB; Trusted_Connections = True")
-                .UseLazyLoadingProxies();
+            //Server s = new Server();
+            //s.StartServer();
+            //var optionsBuilder = new DbContextOptionsBuilder<ChatContext>()
+            //    .UseSqlServer("Server = .; Database = DB; Trusted_Connections = True")
+            //    .UseLazyLoadingProxies();
 
         }
     }

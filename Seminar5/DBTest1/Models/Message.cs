@@ -1,8 +1,8 @@
-﻿namespace DBTest1
+﻿namespace DBTest1.Models
 {
     public class Message
     {
-        public int MessageId {  get; set; }
+        public int MessageId { get; set; }
         public string? MessageText { get; set; }
         public DateTime? DateSend { get; set; }
         public bool IsSend { get; set; }

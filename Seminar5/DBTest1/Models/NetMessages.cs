@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace DBTest1
+namespace DBTest1.Models
 {
     public enum TypeSend
     {
@@ -11,12 +11,12 @@ namespace DBTest1
     public enum Commands
     {
         Register,
-        Delete,
+        Message,
         Confirmation
     }
-    public class NetMessages
+    public class NetMessage
     {
-        public Commands command { get; set; }
+        public Commands Command { get; set; }
         public string? Text { get; set; }
         public DateTime DateTime { get; set; }
         public string? NickNameFrom { get; set; }
@@ -24,7 +24,7 @@ namespace DBTest1
 
         public string SerialazeMessageToJSON() => JsonSerializer.Serialize(this);
 
-        public static NetMessages? DeserializeMessgeFromJSON(string message) => JsonSerializer.Deserialize<NetMessages>(message);
+        public static NetMessage? DeserializeMessgeFromJSON(string message) => JsonSerializer.Deserialize<NetMessages>(message);
 
         public void PrintGetMessageFrom()
         {

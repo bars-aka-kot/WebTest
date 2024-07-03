@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace DBTest1
+namespace DBTest1.Models
 {
-    public class ChatContext: DbContext
+    public class ChatContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Message> Messages { get; set; }
@@ -11,14 +11,14 @@ namespace DBTest1
         {
 
         }
-        public ChatContext(DbContextOptions dbContext): base(dbContext)
+        public ChatContext(DbContextOptions dbContext) : base(dbContext)
         {
-            
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server = localhost; Database = myDataBase; Integrated Security=False;TrustServerSertificate=True;Trusted_Connection=True;")
+            optionsBuilder.UseSqlServer("Server = DESKTOP-SESK3TN; Database = TestBase; Integrated Security=False;Trusted_Connection=True;")
                 .UseLazyLoadingProxies();
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -54,7 +54,7 @@ namespace DBTest1
                 .HasConstraintName("message_to_user_fkey");
                 entity.HasOne(u => u.UserFrom)
                 .WithMany(m => m.MessagesFrom)
-                .HasForeignKey(k=>k.UserFromId)
+                .HasForeignKey(k => k.UserFromId)
                 .HasConstraintName("message_from_user_fkey");
 
             });
@@ -62,4 +62,3 @@ namespace DBTest1
         }
     }
 }
-//1/40/30
